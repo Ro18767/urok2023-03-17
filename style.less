@@ -1,0 +1,73 @@
+@border-width: 2px;
+@brake-point1: 800px;
+@brake-point2: 500px;
+
+* {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+    scroll-behavior: smooth;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.bordered {
+    border: #ffffff solid @border-width;
+}
+
+.gripWrap {
+    display: grid;
+    width: 50%;
+
+    grid-template-areas:
+        "el1 el2 el3"
+    ;
+
+    @media (max-width:@brake-point1) {
+        grid-template-areas:
+            "el1 el2"
+            "el3 el3"
+        ;
+    }
+
+    @media (max-width:@brake-point2) {
+        grid-template-areas:
+            "el1"
+            "el2"
+            "el3"
+        ;
+    }
+
+    .bordered();
+}
+
+.el {
+    padding: 10px;
+    .bordered();
+}
+
+.el1 {
+    grid-area: el1;
+    background-color: red;
+}
+
+.el2 {
+    grid-area: el2;
+    background-color: orange;
+}
+
+.el3 {
+    grid-area: el3;
+    background-color: yellow;
+
+}
